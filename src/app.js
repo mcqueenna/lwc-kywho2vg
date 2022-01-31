@@ -70,12 +70,14 @@ bike.ratio();
 
 // use of function: this creates an object construstor:
 function cbike(a, b) {
+  let myVariable = 1;
   //this is a constructor, for an object called a cbike
   //essentially like a class
-  console.log('log from inside the constructor');
+  console.log('log from inside the constructor: ' + myVariable);
 }
 
-let bikeFunc = function(a, b) {
+let bikeFun = function(a, b) {
+  a : 1;
   //functions do NOT need to return something.
 }
 
@@ -85,12 +87,14 @@ let bikeFunc = function(a, b) {
 // be the same as the contents of of a function : cbike function(a,b)
 
 
-let temp2 = cbike();
+let temp2 = cbike(); // ? does this assign duplicate the constructor
+let temp3 = new cbike();
+
+// let temp4 = new temp2(); // error: temp2 is not a constrcutor
 
 
-bikeFunc();
 
-
+bikeFun();
 cbike();
 
 
