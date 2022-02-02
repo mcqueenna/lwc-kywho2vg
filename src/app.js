@@ -1,8 +1,9 @@
 import { LightningElement } from 'lwc';
-export default class Demo extends LightningElement {
+export default class Demo2 extends LightningElement {
 
   show = true;
 
+  outText = "no output text";
   text = 'This text came from a JS prop';
   handleChange(event){
     this.button = document.getElementById("myid");
@@ -13,10 +14,10 @@ export default class Demo extends LightningElement {
   }
 
 
-
-
-
 }
+
+
+
 
 let a = 1;
 
@@ -33,6 +34,9 @@ const bike = {
   }
 }
 
+
+
+
 console.log(bike.gears); // 10
 console.log(bike.currentGear); //3
 bike.changeGear('up', 1);
@@ -43,6 +47,22 @@ console.log(bike.currentGear); //4
 let $ = function(a) {
   console.log(a);
 }
+
+
+// constructor notation (example from trailhead) ----------------------------------------------
+function Bike(gears, startGear) {
+  this.gears = gears;
+  this.currentGear = startGear;
+}
+Bike.prototype.changeGear = function(direction, changeBy) {
+  if (direction === 'up') {
+    this.currentGear += changeBy;
+  } else {
+    this.currentGear -= changeBy;
+  }
+}
+
+// -----------------------------------------------------------------------------------
 
 
 $('test');
@@ -66,8 +86,6 @@ bike.ratio = function() {
 bike.ratio();
 
 
-
-
 // use of function: this creates an object construstor:
 function cbike(a, b) {
   let myVariable = 1;
@@ -75,6 +93,7 @@ function cbike(a, b) {
   //essentially like a class
   console.log('log from inside the constructor: ' + myVariable);
 }
+
 
 let bikeFun = function(a, b) {
   a : 1;
@@ -96,6 +115,81 @@ let temp3 = new cbike();
 
 bikeFun();
 cbike();
+
+
+console.log('dont think you can access from within a class:' + Demo2.text);
+
+
+
+
+
+function clicked(event) {
+  console.log('clicked');
+}
+
+let myclicker = document.getElementById("clicker");
+//myclicker.addEventListener("click", clicked);
+
+
+// glass of water example
+
+function Glass(capacity, currentVolume) {
+  this.capacity = capacity;
+  this.currentVolume = currentVolume;
+};
+
+
+Glass.prototype.changeVolume = function(amount) {
+  console.log('before: ' + this.currentVolume);
+  this.currentVolume += amount;
+  console.log('before: ' + this.currentVolume);
+}
+
+
+
+let myglass = new Glass(10,0);
+myglass.changeVolume(3);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
